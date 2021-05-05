@@ -1,0 +1,9 @@
+name: Locker
+version: ${project.version}
+main: com.mcmiddleearth.plugin.locker.LockerPlugin
+api-version: 1.15
+
+commands:
+  locker:
+    test:
+      Does nothing

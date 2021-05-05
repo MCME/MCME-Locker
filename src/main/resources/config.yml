@@ -1,0 +1,4 @@
+default_status: LockerStatus.UNLOCKED
+kick_permissions: []
+remain_permissions: []
+exclude_permissions: []
