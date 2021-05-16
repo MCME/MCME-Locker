@@ -1,4 +1,5 @@
 default_status: LockerStatus.UNLOCKED
+move_to_world: Main
 kick_permissions: []
 remain_permissions: []
 exclude_permissions: []

@@ -11,7 +11,7 @@ public class ToggleAction implements Command<McmeCommandSender> {
 
     @Override
     public int run(CommandContext<McmeCommandSender> context) {
-        LockerPlugin.getInstance().manager().toggle();
+        LockerPlugin.getInstance().lockManager().toggle();
         context.getSource().sendMessage(new ComponentBuilder("Locker Toggled").create());
         return 1;
     }

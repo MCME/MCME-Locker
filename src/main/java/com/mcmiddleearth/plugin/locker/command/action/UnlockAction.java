@@ -12,7 +12,7 @@ public class UnlockAction implements Command<McmeCommandSender> {
 
     @Override
     public int run(CommandContext<McmeCommandSender> context) {
-        LockerPlugin.getInstance().manager().setLock(LockerStatus.UNLOCKED);
+        LockerPlugin.getInstance().lockManager().setLock(LockerStatus.UNLOCKED);
         context.getSource().sendMessage(new ComponentBuilder("Locker Unlocked").create());
         return 1;
     }

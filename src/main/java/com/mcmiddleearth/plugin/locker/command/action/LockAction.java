@@ -12,7 +12,7 @@ public class LockAction implements Command<McmeCommandSender> {
 
     @Override
     public int run(CommandContext<McmeCommandSender> context) {
-        LockerPlugin.getInstance().manager().setLock(LockerStatus.LOCKED);
+        LockerPlugin.getInstance().lockManager().setLock(LockerStatus.LOCKED);
         context.getSource().sendMessage(new ComponentBuilder("Locker locked").create());
         return 1;
     }

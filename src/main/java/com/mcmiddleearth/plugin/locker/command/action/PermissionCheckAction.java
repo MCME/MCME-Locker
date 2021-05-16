@@ -12,6 +12,6 @@ public class PermissionCheckAction implements Predicate<McmeCommandSender> {
     @Override
     public boolean test(McmeCommandSender sender) {
         McmePlayerCommandSender mcmePlayerCommandSender = (McmePlayerCommandSender) sender;
-        return LockerPlugin.getInstance().manager().canExecute(mcmePlayerCommandSender.getPlayer());
+        return LockerPlugin.getInstance().lockManager().canExecute(mcmePlayerCommandSender.getPlayer());
     }
 }

@@ -7,17 +7,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import static com.mcmiddleearth.plugin.locker.Messages.KICK_MESSAGE_LOCKED;
 import static com.mcmiddleearth.plugin.locker.manager.LockerStatus.LOCKED;
 
 public class PlayerJoinListener implements Listener {
 
     @EventHandler
     public void playerJoinListener(PlayerJoinEvent playerJoinEvent) {
-        LockerManager manager = LockerPlugin.getInstance().manager();
+        LockerManager manager = LockerPlugin.getInstance().lockManager();
         Player player = playerJoinEvent.getPlayer();
         if (LOCKED.equals(manager.getStatus()) && manager.shouldKickOnJoin(player)) {
-            player.kickPlayer(KICK_MESSAGE_LOCKED);
+            LockerPlugin.getInstance().kickManager().kick(player);
         }
     }
 }
