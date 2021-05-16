@@ -19,6 +19,7 @@ public class KickManager {
         if (moveWorldName == null || moveWorldName.isEmpty()) {
             onlinePlayer.kickPlayer(KICK_MESSAGE_LOCKED);
         } else {
+            onlinePlayer.sendMessage(KICK_MESSAGE_LOCKED);
             //noinspection UnstableApiUsage
             ByteArrayDataOutput out = ByteStreams.newDataOutput();
             out.writeUTF("ConnectOther");

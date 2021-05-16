@@ -52,7 +52,7 @@ public final class LockerPlugin extends JavaPlugin {
         }
 
         this.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
-
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 
     @Override
