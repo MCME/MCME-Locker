@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import java.util.Collection;
 import java.util.List;
 
-import static com.mcmiddleearth.plugin.locker.Messages.KICK_MESSAGE_LOCKED;
 import static com.mcmiddleearth.plugin.locker.manager.LockerStatus.LOCKED;
 import static com.mcmiddleearth.plugin.locker.manager.LockerStatus.UNLOCKED;
 
@@ -52,7 +51,7 @@ public class LockerManager {
         Collection<? extends Player> onlinePlayers = LockerPlugin.getInstance().getServer().getOnlinePlayers();
         for (Player onlinePlayer : onlinePlayers) {
             if (shouldKickOnLocked(onlinePlayer)) {
-                onlinePlayer.kickPlayer(KICK_MESSAGE_LOCKED);
+                LockerPlugin.getInstance().kickManager().kick(onlinePlayer);
             }
         }
     }

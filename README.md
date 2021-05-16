@@ -3,6 +3,8 @@ This plugin allows servers to be locked and only allow a specific group of peopl
 ## Config
 `default_status` can have 2 values either `LOCKED` or `UNLOCKED` other values will default to unlocked
 
+`move_to_world` this is the server that people will be moved to instead of kicked. If not present, a kick will be used.
+
 `execute_permissions` these permissions are allowed to use the commands
 
 `kick_permissions` these permissions will be kicked once the lock is activated

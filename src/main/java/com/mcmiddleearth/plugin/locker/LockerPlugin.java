@@ -3,6 +3,7 @@ package com.mcmiddleearth.plugin.locker;
 import com.mcmiddleearth.plugin.locker.command.LockerCommandDispatcher;
 import com.mcmiddleearth.plugin.locker.command.McmePlayerCommandSender;
 import com.mcmiddleearth.plugin.locker.listener.PlayerJoinListener;
+import com.mcmiddleearth.plugin.locker.manager.KickManager;
 import com.mcmiddleearth.plugin.locker.manager.LockerManager;
 import com.mcmiddleearth.plugin.locker.manager.LockerStatus;
 import org.bukkit.command.Command;
@@ -23,6 +24,7 @@ public final class LockerPlugin extends JavaPlugin {
     }
 
     private LockerManager lockerManager;
+    private KickManager kickManager;
     private LockerCommandDispatcher commandDispatcher;
 
     @Override
@@ -39,6 +41,7 @@ public final class LockerPlugin extends JavaPlugin {
 
         // Plugin startup logic
         this.lockerManager = new LockerManager();
+        this.kickManager = new KickManager();
         this.commandDispatcher = new LockerCommandDispatcher();
 
         try {
@@ -57,8 +60,12 @@ public final class LockerPlugin extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public LockerManager manager() {
+    public LockerManager lockManager() {
         return lockerManager;
+    }
+
+    public KickManager kickManager() {
+        return kickManager;
     }
 
 }
