@@ -21,8 +21,34 @@
         <version.bungeecord.chat>1.16-R0.3</version.bungeecord.chat>
     </properties>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>mcme-snapshots</id>
+            <url>http://nexus.mcmiddleearth.com:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <connection>scm:git:git@github.com:MCME/MCME-Locker.git</connection>
+        <url>scm:git:git@github.com:MCME/MCME-Locker.git</url>
+        <developerConnection>scm:git:git@github.com:MCME/MCME-Locker.git</developerConnection>
+    </scm>
+
     <build>
         <plugins>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.1</version>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -92,4 +118,30 @@
             <version>${version.brigadier}</version>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>releases</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.5.1</version>
+                        <executions>
+                            <execution>
+                                <id>default-deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <skipStaging>true</skipStaging>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
